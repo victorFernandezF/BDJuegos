@@ -154,6 +154,86 @@ h2{
 .mayusculoides{
     text-transform: uppercase;
 }
+span{
+    display: inline-block;
+    width: 134px;
+    height:20px;
+
+}
+.Deporte{
+     /*width: 12px;*/
+    background-color: rgb(242, 248, 190);
+    border: 1px solid rgb(124, 129, 81);
+    border-radius: 10px;
+}
+.Shooter{
+    display: inline-block;
+    width: 134px;
+    color:white;
+    background-color: rgb(246, 65, 65);
+    border: 1px solid rgb(87, 5, 5);
+    border-radius: 10px;
+}
+.Mundo-abierto{
+    display: inline-block;
+    width: 134px;
+    /*width: 12px;*/
+    background-color: rgb(170, 241, 161);
+    border: 1px solid rgb(24, 121, 7);
+    border-radius: 10px;
+}
+.Simulacion{
+    display: inline-block;
+    width: 134px;
+    /*width: 12px;*/
+    background-color: rgb(134, 224, 205);
+    border: 1px solid rgb(82, 143, 130);
+    border-radius: 10px;
+}
+.Accion{
+    display: inline-block;
+    width: 134px;
+    /*width: 12px;*/
+    background-color: rgb(219, 217, 53);
+    border: 1px solid rgb(151, 149, 27);
+    border-radius: 10px;
+}
+.Superheroes{
+    display: inline-block;
+    width: 134px;
+    color:white;
+    background-color: rgb(150, 76, 236);
+    border: 1px solid rgb(90, 32, 156);
+    border-radius: 10px;
+}
+.Zombies{
+    display: inline-block;
+    width: 134px;
+    color:white;
+    background-color: rgb(245, 98, 189);
+    border: 1px solid rgb(143, 15, 75);
+    border-radius: 10px;
+}
+.Lego{
+    display: inline-block;
+    width: 134px;
+    color:rgb(5, 7, 117);
+    background-color: rgb(126, 197, 238);
+    border: 1px solid rgb(9, 71, 112);
+    border-radius: 10px;
+}
+.Plataforma{
+    display: inline-block;
+    width: 134px;
+    color:white;
+    background-color: rgb(28, 15, 207);
+    border: 1px solid rgb(14, 30, 177);
+    border-radius: 10px;
+}
+
+
+
+
 /* E S T A D O   E V E N T O s */
 .mayusculones{
     text-transform: uppercase;

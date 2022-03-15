@@ -1,3 +1,37 @@
+<?php
+
+function arrejuntar($genero){
+    $hay = strpos($genero, " ");
+    if($hay == ""){
+        $mamawebo = $genero;
+    }else{
+        $cotorra = explode(" ", $genero);
+        $mamawebo = "$cotorra[0]-$cotorra[1]";
+    };
+ return $mamawebo;
+};
+
+function convertirjugadores($jugadores){
+    $hay = strpos($jugadores, "-");
+    if($jugadores == "1"){
+        $alcachofa = "1 Jugador";
+    }elseif($hay ==""){
+        $alcachofa = "$jugadores Jugadores";
+    }else{
+        $amapola = explode("-", $jugadores);
+        $alcachofa = " De $amapola[0] a $amapola[1] jugadores";
+ 
+    };
+    return $alcachofa;
+}
+
+
+
+
+//exit();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +58,7 @@ include("connection.php");
     <div class="container">
         <div class="item-tabla">
             <div class="titulo">
-                <h1>VER JUEGOS</h1>
+                <h1>BD - JUEGOS</h1>
             </div>    
 
             <div class="menu">
@@ -36,25 +70,25 @@ include("connection.php");
                     <table class="cr_table table table-bordered, tablamatch">
                         <thead>
                             <tr>
-                                <th colspan="5">JUEGOS</th>
+                                <th colspan="5">JUEGOS instalados</th>
                             </tr>
                             <tr>
                                 <th>NOMBRE</th>
                                 <th>GENERO</th>
-                                <th>INSTALADO</th>
+                                <th>jugadores</th>
                                 <th>ESPACIO MINIMO</th>
                                 <th>PLATAFORMA</th>
                             </tr>
                         </thead>
                         <tbody>
                                 <?php
-                                    $query = "SELECT * FROM juegos ORDER BY 'nombre'";
+                                    $query = "SELECT * FROM juegos WHERE instalado = 'SI' ORDER BY nombre ASC";
                                     $result_tasks = mysqli_query($conn, $query);    
                                     while($row = mysqli_fetch_assoc($result_tasks)) { ?>
                                         <?php $id= $row['id'];?>
-                                           <td><?php echo $row['nombre']; ?></td>
-                                            <td><?php echo $row['genero']; ?></td>
-                                            <td><?php echo $row['instalado']; ?></td>
+                                            <td class="mayusculones"><?php echo $row['nombre']; ?></td>
+                                            <td><span class="<?php echo arrejuntar($row['genero']); ?>"><?php echo $row['genero']; ?></span></td>
+                                            <td><?php echo convertirjugadores($row['jugadores']); ?></td>
                                             <td><?php echo $row['espacio']; ?></td>
                                             <td><?php echo $row['plataforma']; ?></td>
 
