@@ -1,4 +1,21 @@
 <?php
+function contarjuegosinstalados(){
+    include("connection.php");
+    $chorizo = "SELECT count(*) as juegos FROM juegos WHERE instalado = 'SI'";
+    $resultado = mysqli_query($conn, $chorizo);
+    $row = mysqli_fetch_array($resultado);
+    $jinstalados = $row['juegos'];
+    return $jinstalados;
+};
+
+function contarjuegos(){
+    include("connection.php");
+    $chimichanga = "SELECT count(*) as juegos FROM juegos";
+    $resultado = mysqli_query($conn, $chimichanga);
+    $row = mysqli_fetch_array($resultado);
+    $juegarros = $row['juegos'];
+    return $juegarros;
+};
 
 function arrejuntar($genero){
     $hay = strpos($genero, " ");
@@ -65,7 +82,11 @@ include("connection.php");
                 <?php include("menuses.php") ?>
             </div>
             <div class="texto-tabla">
-                <div class="divdetabla">   
+                <div class="divdetabla">
+                    <fieldset class="noborde">
+                        <label for="NOMBRE">JUEGOS EN TOTAL: <?php echo contarjuegos() ?> </label><br>
+                        <label for="NOMBRE">JUEGOS INSTALADOS: <?php echo contarjuegosinstalados() ?> </label><br>
+                    </fieldset>   
                     <!-- CONNTENIDO -->
                     <table class="cr_table table table-bordered, tablamatch">
                         <thead>

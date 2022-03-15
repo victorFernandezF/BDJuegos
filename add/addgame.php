@@ -61,7 +61,9 @@ if(isset($_POST["add"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
                 <?php include("../menuses.php") ?>
             </div>
             <div class="texto">
-              <div class="subtitulo">                
+              <div class="subtitulo">
+                  
+              
                 <form class="formulario" action="" method="POST" enctype="multipart/form-data">
                     <fieldset class="noborde">
                         <label for="NOMBRE">NOMBRE DEL JUEGO:</label><br>
