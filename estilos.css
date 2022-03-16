@@ -14,14 +14,21 @@
     
     
     /*GRADIENTE*/
-    --colorGradient1: rgb(68, 0, 0);
-    --colorGradient2: rgba(165,1,23,1);
-    --colorGradient3: rgba(68, 0, 0);
+    --colorGradient1: #0d3257;
+    --colorGradient2: #3b79b8;
+    --colorGradient3: #0d3257;
 }
 
 .subtitulo{  
     width: 78%;
     text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+    color:black;
+    font-size: 20px;
+}
+.subtitulover{  
+    width: 78%;
+    text-align: left;
     font-family:Arial, Helvetica, sans-serif;
     color:black;
     font-size: 20px;
@@ -454,10 +461,20 @@ span{
 .formulario{
     margin-top: 20px;
 }
+.formulariover{
+    margin-top: 20px;
+    margin-left: 200px;
+}
 
 select{
     text-align: center;
     width:318px;
+    height:25px;
+}
+.selecto{
+    visibility: hidden;
+    text-align: center;
+    width:184px;
     height:25px;
 }
 
@@ -465,6 +482,11 @@ select{
     box-sizing: border-box;
     width:308px;
     height: 22px;  
+}
+.inputado{
+    box-sizing: border-box;
+    width: 28px;
+    height: 20px;  
 }
 .miniedit{
     width:190px;
@@ -489,6 +511,13 @@ select{
     font-size: 18px;
     border:none;
     text-align: center;
+    font-weight: bold;
+}
+.nobordever{
+    font-family: verdana;
+    font-size: 18px;
+    border:none;
+    
     font-weight: bold;
 }
 .nobordes{

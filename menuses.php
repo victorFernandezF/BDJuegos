@@ -35,7 +35,7 @@
 				
 				<li><a href="<?= $base; ?>descripcion.php?estado=View" onclick="mobileDisallowParentLinks(event)">ver</a>
 					<ul>
-						<li><a href="<?= $base; ?>ver/view_events.php">ver Juegos</a></li>
+						<li><a href="<?= $base; ?>ver.php">ver Juegos</a></li>
 						<!-- <li><a href="<?= $base; ?>ver/askviewmatch.php">ver combates</a></li>
 						<li><a href="<?= $base; ?>ver/who.php">ver predicciones</a></li>
 						<li><a href="<?= $base; ?>ver/who_comprobar.php">Ver Estadisticas</a></li>
