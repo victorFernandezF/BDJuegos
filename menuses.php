@@ -22,7 +22,7 @@
 				</li>
 				<li><a href="<?= $base; ?>descripcion.php?estado=Edit" onclick="mobileDisallowParentLinks(event)">Modificar</a>
 					<ul>
-						<li><a href="<?= $base; ?>edit/editgame.php">modificar Juego</a></li>
+						<li><a href="<?= $base; ?>editfilter.php">modificar Juego</a></li>
 					</ul>
 				</li>
 				<li><a href="<?= $base; ?>descripcion.php?estado=Delete" onclick="mobileDisallowParentLinks(event)">Eliminar</a>
