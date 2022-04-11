@@ -103,7 +103,6 @@ if(isset($_POST["edit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
                         <input class="input" type="text" id="plataforma" name="plataforma" value="PS4" value="<?php echo $plataforma ?>">
                     </fieldset>
 
-
                     <fieldset class="noborde">
                         <input class="boton" type="submit" name="edit" value="EDITAR">           
                     </fieldset>                    

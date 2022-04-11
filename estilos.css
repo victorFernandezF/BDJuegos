@@ -19,6 +19,10 @@
     --colorGradient3: #0d3257;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
 .subtitulo{  
     width: 78%;
     text-align: center;

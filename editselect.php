@@ -8,6 +8,7 @@ include("funciones.php");
     $plataforma = $plat = isset($_POST['plataforma']) ? "si" : "no";
     $genero = $plat = isset($_POST['genero']) ? "si" : "no";
     $jugadores = $plat = isset($_POST['jugadores']) ? "si" : "no";
+    $instalado = $plat = isset($_POST['instalado']) ? "si" : "no";
 
     if($todos == 'si'){
         $where = $where;  
@@ -27,10 +28,16 @@ include("funciones.php");
         $jugadores2 = $_POST['jugadores2'];
         $where = "$where AND jugadores = '$jugadores2'";  
       };
+      
+      if($instalado == 'si'){
+        $instalados2 = $_POST['instalados2'];
+        $where = "$where AND instalado = '$instalados2'";  
+      };
 
 
     $query = "SELECT * FROM juegos $where ORDER BY nombre ";
     //echo $query;
+    //exit();
 
 }
 ?>
@@ -73,12 +80,13 @@ include("connection.php");
                     <table class="cr_table table table-bordered, tablamatch">
                         <thead>
                             <tr>
-                                <th colspan="5">JUEGOS instalados</th>
+                                <th colspan="6">JUEGOS instalados</th>
                             </tr>
                             <tr>
                                 <th>NOMBRE</th>
                                 <th>GENERO</th>
                                 <th>jugadores</th>
+                                <th>INSTALADO</th>
                                 <th>ESPACIO MINIMO</th>
                                 <th>PLATAFORMA</th>
                             </tr>
@@ -92,6 +100,7 @@ include("connection.php");
                                             <td class="mayusculones"><a href="edit.php?id=<?php echo $id ?>"><?php echo $row['nombre']; ?></a></td>
                                             <td><span class="<?php echo arrejuntar($row['genero']); ?>"><?php echo $row['genero']; ?></span></td>
                                             <td><?php echo convertirjugadores($row['jugadores']); ?></td>
+                                            <td><?php echo $row['instalado']; ?></td>
                                             <td><?php echo $row['espacio']; ?></td>
                                             <td><?php echo $row['plataforma']; ?></td>
 
