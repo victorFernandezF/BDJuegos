@@ -37,7 +37,7 @@ if(isset($_POST["edit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
     $plataforma = strtoupper($plataforma1);  
     $query = "UPDATE juegos SET nombre = '$nombre', genero = '$genero', instalado = '$instalado', espacio = '$espacio', jugadores = '$jugadores', formato = '$formato', plataforma = '$plataforma' WHERE id = $id";
     mysqli_query($conn, $query);
-    echo $query;
+    //echo $query;
 }
 
 ?>

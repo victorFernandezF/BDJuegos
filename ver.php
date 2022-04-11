@@ -21,7 +21,7 @@
             <div class="texto">
                 <div class="subtitulover"> 
                     <form class="formulariover" action="view.php" method="POST" enctype="multipart/form-data">
-                        <fieldset class="nobordever">
+                    <fieldset class="nobordever">
                             <input type="checkbox" class="inputado" id="todos" name="todos" value="todos" onclick="tod()">
                             <label for="todos"> TODOS</label><br>
                         </fieldset>
@@ -41,6 +41,7 @@
                             <label for="genero"> GENERO </label>
                             <select class="selecto" name="genero2" id="genero2">
                                 <option value="Accion">ACCION</option>
+                                <option value="Mundo abierto">MUNDO ABIERTO</option>
                                 <option value="Deporte">DEPORTE</option>
                                 <option value="Platafdorma">PLATAFORMA</option>
                                 <option value="Simulacion">SIMULACION</option>
@@ -57,6 +58,16 @@
                                 <option value="1">1 JUGADOR</option>
                                 <option value="1-2">DE 1 A 2 JUGADORES</option>
                                 <option value="1-4">DE 1 A 4 JUGADORES</option>
+                            </select>
+                        </fieldset>
+
+                        <!-- INSTALADOS -->
+                        <fieldset class="nobordever">
+                            <input type="checkbox" class="inputado" id="instalado" name="instalado" value="Instalado" onclick="insta()">
+                            <label for="instalado"> INSTALADOS </label>
+                            <select class="selecto" name="instalados2" id="instalados2">
+                                <option value="SI">INSTALADOS</option>
+                                <option value="NO">NO INSTALADOS</option>
                             </select>
                         </fieldset>
                         <fieldset class="nobordever">
@@ -121,6 +132,17 @@
             todos.checked = false;
         } else {
             jugadores2.style.visibility = "hidden";
+         }
+    }
+    function insta() {
+        const todos = document.getElementById("todos");
+        const instalado = document.getElementById("instalado");
+        const instalado2 = document.getElementById("instalados2");
+        if (instalado.checked == true){
+            instalado2.style.visibility = "visible";
+            todos.checked = false;
+        } else {
+            instalado2.style.visibility = "hidden";
          }
     }
 

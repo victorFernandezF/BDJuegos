@@ -8,6 +8,7 @@ include("funciones.php");
     $plataforma = $plat = isset($_POST['plataforma']) ? "si" : "no";
     $genero = $plat = isset($_POST['genero']) ? "si" : "no";
     $jugadores = $plat = isset($_POST['jugadores']) ? "si" : "no";
+    $instalado = $plat = isset($_POST['instalado']) ? "si" : "no";
 
     if($todos == 'si'){
         $where = $where;  
@@ -26,6 +27,11 @@ include("funciones.php");
       if($jugadores == 'si'){
         $jugadores2 = $_POST['jugadores2'];
         $where = "$where AND jugadores = '$jugadores2'";  
+      };
+
+      if($instalado == 'si'){
+        $instalados2 = $_POST['instalados2'];
+        $where = "$where AND instalado = '$instalados2'";  
       };
 
 
