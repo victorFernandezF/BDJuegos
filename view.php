@@ -95,7 +95,7 @@ include("connection.php");
                                     $result_tasks = mysqli_query($conn, $query);    
                                     while($row = mysqli_fetch_assoc($result_tasks)) { ?>
                                         <?php $id= $row['id'];?>
-                                            <td class="mayusculones"><?php echo $row['nombre']; ?></td>
+                                            <td class="mayusculones"><a href="details.php?id=<?php echo $id ?>"><?php echo $row['nombre']; ?></td>
                                             <td><span class="<?php echo arrejuntar($row['genero']); ?>"><?php echo $row['genero']; ?></span></td>
                                             <td><?php echo convertirjugadores($row['jugadores']); ?></td>
                                             <td><?php echo $row['espacio']; ?></td>

@@ -2,52 +2,17 @@
 include("connection.php");
 include("funciones.php");
 
-$toti = "";
-if (isset($_GET['toti'])) {
-    $toti = $_GET['toti'];
-    $query = "SELECT * FROM juegos ORDER BY nombre ";
+if (!isset($_GET['id'])) {
+    header("Location: index.php");
+    exit();
 }
 
- if(isset($_POST["ver"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
-    $todos = $todos = isset($_POST['todos']) ? "si" : "no";
-    $where = "WHERE 1";
-    $plataforma = $plat = isset($_POST['plataforma']) ? "si" : "no";
-    $genero = $plat = isset($_POST['genero']) ? "si" : "no";
-    $jugadores = $plat = isset($_POST['jugadores']) ? "si" : "no";
-    $instalado = $plat = isset($_POST['instalado']) ? "si" : "no";
+  // DRY - Don't Repeat Yourself
+  $id = $_GET['id'];
+  $query = "SELECT * FROM juegos WHERE id = $id LIMIT 1";
+  $result = mysqli_query($conn, $query);
 
 
-
-    if($todos == 'si'){
-        $where = $where;  
-      };  
-
-    if($plataforma == 'si'){
-      $plataforma2 = $_POST['plataforma2'];
-      $where = "$where AND plataforma = '$plataforma2'";  
-    };
-
-    if($genero == 'si'){
-        $genero2 = $_POST['genero2'];
-        $where = "$where AND genero = '$genero2'";  
-      };
-      
-      if($jugadores == 'si'){
-        $jugadores2 = $_POST['jugadores2'];
-        $where = "$where AND jugadores = '$jugadores2'";  
-      };
-      
-      if($instalado == 'si'){
-        $instalados2 = $_POST['instalados2'];
-        $where = "$where AND instalado = '$instalados2'";  
-      };
-
-
-    $query = "SELECT * FROM juegos $where ORDER BY nombre ";
-    //echo $query;
-    //exit();
-
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,10 +23,7 @@ if (isset($_GET['toti'])) {
     <title>Inicio</title>
 </head>
 <body>
-<?php
-include("connection.php");
-//include("funciones.php");
-?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -69,7 +31,7 @@ include("connection.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos.css">
-    <title>Predicciones</title>
+    <title>Cojones</title>
 </head>
 <body>
     <div class="container">
@@ -88,15 +50,15 @@ include("connection.php");
                     <table class="cr_table table table-bordered, tablamatch">
                         <thead>
                             <tr>
-                                <th colspan="6">JUEGOS instalados</th>
+                                <th colspan="6">DETALLES</th>
                             </tr>
                             <tr>
                                 <th>NOMBRE</th>
                                 <th>GENERO</th>
                                 <th>jugadores</th>
-                                <th>INSTALADO</th>
                                 <th>ESPACIO MINIMO</th>
                                 <th>PLATAFORMA</th>
+                                <th>descripcion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -105,12 +67,12 @@ include("connection.php");
                                     $result_tasks = mysqli_query($conn, $query);    
                                     while($row = mysqli_fetch_assoc($result_tasks)) { ?>
                                         <?php $id= $row['id'];?>
-                                            <td class="mayusculones"><a href="edit.php?id=<?php echo $id ?>"><?php echo $row['nombre']; ?></a></td>
+                                            <td class="mayusculones"><?php echo $row['nombre']; ?></td>
                                             <td><span class="<?php echo arrejuntar($row['genero']); ?>"><?php echo $row['genero']; ?></span></td>
                                             <td><?php echo convertirjugadores($row['jugadores']); ?></td>
-                                            <td><?php echo $row['instalado']; ?></td>
                                             <td><?php echo $row['espacio']; ?></td>
                                             <td><?php echo $row['plataforma']; ?></td>
+                                            <td><p><?php echo $row['descripcion']; ?></p></td>
 
                                         </tr>
                                     <?php }

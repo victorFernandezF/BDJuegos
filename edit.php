@@ -19,6 +19,7 @@ if (!isset($_GET['id'])) {
     $espacio = $row['espacio'];
     $jugador = $row['jugadores'];
     $formato = $row['formato'];
+    $descripcion = $row['descripcion'];
     $plataforma = $row['plataforma'];
     //echo $nombre;
   }
@@ -31,14 +32,19 @@ if(isset($_POST["edit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
     $formato = $_POST['formato'];
     $jugadores = $_POST['jugadores'];
     $formato = $_POST['formato'];
+    $descripcion = $_POST['descripcion'];
     $plataforma1 = $_POST['plataforma'];
 
     $uppernombre = strtoupper($nombre);  
     $plataforma = strtoupper($plataforma1);  
-    $query = "UPDATE juegos SET nombre = '$nombre', genero = '$genero', instalado = '$instalado', espacio = '$espacio', jugadores = '$jugadores', formato = '$formato', plataforma = '$plataforma' WHERE id = $id";
+    $query = "UPDATE juegos SET nombre = '$nombre', genero = '$genero', instalado = '$instalado', espacio = '$espacio', jugadores = '$jugadores', formato = '$formato', descripcion = '$descripcion', plataforma = '$plataforma' WHERE id = $id";
     mysqli_query($conn, $query);
-    echo "<script>window.history.back()</script>";
+    //echo "<script>window.history.back()</script>";
+    //echo "<script>window.history.back()<script>";
+    header('Location: editselect.php?toti=si');
+
     //echo $query;
+
 }
 
 ?>
@@ -99,6 +105,12 @@ if(isset($_POST["edit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
                             <option value="digital" <?= $instalado == 'digital' ? 'selected' : '' ?>>DIGITAL</option>
                         </select>
                     </fieldset>
+
+                    <fieldset class="noborde">
+                        <label for="descripcion">DESCRIPCION</label><br>
+                        <textarea class="descripcion" name="descripcion" placeholder="<?php echo $descripcion?>"></textarea>
+                    </fieldset>
+
                     <fieldset class="noborde">
                         <label for="plataforma">PLATAFORMA</label><br>
                         <input class="input" type="text" id="plataforma" name="plataforma" value="PS4" value="<?php echo $plataforma ?>">

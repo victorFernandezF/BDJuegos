@@ -67,11 +67,11 @@ if(isset($_POST["add"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
                 <form class="formulario" action="" method="POST" enctype="multipart/form-data">
                     <fieldset class="noborde">
                         <label for="NOMBRE">NOMBRE DEL JUEGO:</label><br>
-                        <input class="input" type="text" id="nombre" name="nombre" placeholder="WWE2k22">
+                        <input class="input" type="text" id="nombre" name="nombre" placeholder="Las aventuras de Mattias">
                     </fieldset>
                     <fieldset class="noborde">
                         <label for="genero">GENERO</label><br>
-                        <input class="input" type="text" id="genero" name="genero" placeholder="DEPORTE, ACCION...">
+                        <input class="input" type="text" id="genero" name="genero" placeholder="ACCION">
                     </fieldset>
                     <fieldset class="noborde">
                         <label for="instalado">INSTALADO</label><br>
@@ -96,6 +96,12 @@ if(isset($_POST["add"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
                             <option value="digital">DIGITAL</option>
                         </select>
                     </fieldset>
+
+                    <fieldset class="noborde">
+                        <label for="descripcion">DESCRIPCION</label><br>
+                        <textarea class="descripcion" name="descripcion" placeholder="Matias es secuestrado por una banda de matones epilépticos y debe escapar como sea. 10/10"></textarea>
+                    </fieldset>
+
                     <fieldset class="noborde">
                         <label for="plataforma">PLATAFORMA</label><br>
                         <input class="input" type="text" id="plataforma" name="plataforma" value="PS4" placeholder="PS3/PS4/PC">

@@ -23,6 +23,9 @@ a{
     text-decoration: none;
     color: black;
 }
+
+
+
 .subtitulo{  
     width: 78%;
     text-align: center;
@@ -501,9 +504,20 @@ select{
     height: 22px;  
 }
 .textarea{
-    width:590px;
+    width:307px;
     height: 50px;
     text-align: center;  
+}
+
+.descripcion{
+    width: 314px;
+    height:100px;
+    text-align: center; 
+    font-size: 17px;
+}
+
+p{
+    width:280px;
 }
 .select-largo{
     width:590px;
