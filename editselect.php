@@ -81,7 +81,7 @@ include("connection.php");
                     <table class="cr_table table table-bordered, tablamatch">
                         <thead>
                             <tr>
-                                <th colspan="6">JUEGOS instalados</th>
+                                <th colspan="7">JUEGOS instalados</th>
                             </tr>
                             <tr>
                                 <th>NOMBRE</th>

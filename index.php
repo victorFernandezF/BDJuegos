@@ -91,7 +91,7 @@ include("connection.php");
                     <table class="cr_table table table-bordered, tablamatch">
                         <thead>
                             <tr>
-                                <th colspan="5">JUEGOS instalados</th>
+                                <th colspan="6">JUEGOS instalados</th>
                             </tr>
                             <tr>
                                 <th>NOMBRE</th>
@@ -107,15 +107,18 @@ include("connection.php");
                                     $query = "SELECT * FROM juegos WHERE instalado = 'SI' ORDER BY nombre ASC";
                                     $result_tasks = mysqli_query($conn, $query);    
                                     while($row = mysqli_fetch_assoc($result_tasks)) { ?>
-                                        <?php $id= $row['id'];?>
+                                    <?php
+                                       $id= $row['id'];
+                                       $link = "details.php?id=$id";?>
+                                       <tr onclick="window.location.href='<?php echo $link?>'">
                                             <td class="mayusculones"><?php echo $row['nombre']; ?></td>
                                             <td><span class="<?php echo arrejuntar($row['genero']); ?>"><?php echo $row['genero']; ?></span></td>
                                             <td><?php echo convertirjugadores($row['jugadores']); ?></td>
                                             <td><?php echo $row['espacio']; ?></td>
                                             <td><?php echo $row['plataforma']; ?></td>
                                             <td><img class="mini-img" src="images/<?php echo $row['imagen']?>.jpg"></td>
-
                                         </tr>
+                                    
                                     <?php }
                                 ?>
                             </form>               
