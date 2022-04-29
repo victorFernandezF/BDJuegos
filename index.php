@@ -99,6 +99,7 @@ include("connection.php");
                                 <th>jugadores</th>
                                 <th>ESPACIO MINIMO</th>
                                 <th>PLATAFORMA</th>
+                                <th>imágen</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -112,6 +113,7 @@ include("connection.php");
                                             <td><?php echo convertirjugadores($row['jugadores']); ?></td>
                                             <td><?php echo $row['espacio']; ?></td>
                                             <td><?php echo $row['plataforma']; ?></td>
+                                            <td><img class="mini-img" src="images/<?php echo $row['imagen']?>.jpg"></td>
 
                                         </tr>
                                     <?php }

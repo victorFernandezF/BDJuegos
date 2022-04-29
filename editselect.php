@@ -104,6 +104,7 @@ include("connection.php");
                                             <td><?php echo $row['instalado']; ?></td>
                                             <td><?php echo $row['espacio']; ?></td>
                                             <td><?php echo $row['plataforma']; ?></td>
+                                            <td><img class="mini-img" src="images/<?php echo $row['imagen']?>.jpg"></td>
 
                                         </tr>
                                     <?php }
