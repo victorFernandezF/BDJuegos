@@ -5,7 +5,7 @@ include("funciones.php");
 $toti = "";
 if (isset($_GET['toti'])) {
     $toti = $_GET['toti'];
-    $query = "SELECT * FROM juegos ORDER BY nombre ";
+    $query = "SELECT * FROM juegos WHERE descripcion ='' ORDER BY nombre ";
 }
 
  if(isset($_POST["ver"]) && $_SERVER["REQUEST_METHOD"] == "POST"){

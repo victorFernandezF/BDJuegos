@@ -42,4 +42,9 @@ function convertirjugadores($jugadores){
     };
     return $alcachofa;
 }
+
+function nombreMasBarraBaja($nombre){
+    $result = str_replace(" ",'_',$nombre);
+    return strtolower($result);
+  }
 ?>
