@@ -5,7 +5,9 @@ include("funciones.php");
 $toti = "";
 if (isset($_GET['toti'])) {
     $toti = $_GET['toti'];
-    $query = "SELECT * FROM juegos WHERE descripcion ='' ORDER BY nombre ";
+    if ($toti == 'si'){
+        $query = "SELECT * FROM juegos WHERE imagen ='' ORDER BY nombre ";
+    }
 }
 
  if(isset($_POST["ver"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
@@ -55,23 +57,14 @@ if (isset($_GET['toti'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <link rel="stylesheet" href="estilos.css">
+    <title>Editar</title>
 </head>
 <body>
 <?php
 include("connection.php");
 //include("funciones.php");
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos.css">
-    <title>Predicciones</title>
-</head>
-<body>
     <div class="container">
         <div class="item-tabla">
             <div class="titulo">

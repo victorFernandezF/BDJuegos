@@ -79,7 +79,7 @@ include("connection.php");
                     <table class="cr_table table table-bordered, tablamatch">
                         <thead>
                             <tr>
-                                <th colspan="5">JUEGOS instalados</th>
+                                <th colspan="6">JUEGOS instalados</th>
                             </tr>
                             <tr>
                                 <th>NOMBRE</th>
@@ -87,6 +87,7 @@ include("connection.php");
                                 <th>jugadores</th>
                                 <th>ESPACIO MINIMO</th>
                                 <th>PLATAFORMA</th>
+                                <th>IMAGEN</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -100,6 +101,7 @@ include("connection.php");
                                             <td><?php echo convertirjugadores($row['jugadores']); ?></td>
                                             <td><?php echo $row['espacio']; ?></td>
                                             <td><?php echo $row['plataforma']; ?></td>
+                                            <td><img class="mini-img" src="images/<?php echo $row['imagen']?>.jpg"></td>
 
                                         </tr>
                                     <?php }

@@ -118,7 +118,7 @@ if(isset($_POST["edit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos.css">
 <!--     <script src="../assets/js/general.functions.js" defer></script> -->
-    <title>Añadir Evento</title>
+    <title>Editar</title>
 </head>
 <body>
     <div class="container">
@@ -169,7 +169,7 @@ if(isset($_POST["edit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
                     <fieldset class="noborde">
                         <label for="descripcion">DESCRIPCION</label><br>
-                        <textarea class="descripcion" name="descripcion" placeholder="<?php echo $descripcion?>"></textarea>
+                        <textarea class="descripcion" name="descripcion"><?php echo $descripcion?></textarea>
                     </fieldset>
 
                     <fieldset class="noborde">
