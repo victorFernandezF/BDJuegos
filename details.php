@@ -50,7 +50,7 @@ if (!isset($_GET['id'])) {
                     <table class="cr_table table table-bordered, tablamatch">
                         <thead>
                             <tr>
-                                <th colspan="6">DETALLES</th>
+                                <th colspan="7">DETALLES</th>
                             </tr>
                             <tr>
                                 <th>NOMBRE</th>
@@ -59,6 +59,8 @@ if (!isset($_GET['id'])) {
                                 <th>ESPACIO MINIMO</th>
                                 <th>PLATAFORMA</th>
                                 <th>descripcion</th>
+                                <th>IMAGEN</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -73,6 +75,7 @@ if (!isset($_GET['id'])) {
                                             <td><?php echo $row['espacio']; ?></td>
                                             <td><?php echo $row['plataforma']; ?></td>
                                             <td><p><?php echo $row['descripcion']; ?></p></td>
+                                            <td><img class="mini-img" src="images/<?php echo $row['imagen']?>.jpg"></td>
 
                                         </tr>
                                     <?php }
