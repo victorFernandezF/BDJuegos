@@ -102,7 +102,7 @@ include("connection.php");
             <?php while ($i < $filas) { ?>
                 <tr>
                     <?php while(($cada <= $fin )&&($cada < $maximo)){ ?>
-                        <td><a href="details.php?img=<?php echo $arreglo[$cada]?>"><img class="persona" src="images/<?php echo $arreglo[$cada]; ?>.jpg" title="<?php echo $arreglonombre[$cada]; ?>" ></a></td>
+                        <td><a href="detalles.php?img=<?php echo $arreglo[$cada]?>"><img class="persona" src="images/<?php echo $arreglo[$cada]; ?>.jpg" title="<?php echo $arreglonombre[$cada]; ?>" ></a></td>
                         <?php $cada++;
                     
                     } $fin = $fin+6?>
