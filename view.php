@@ -37,6 +37,23 @@ include("funciones.php");
 
     $query = "SELECT * FROM juegos $where ORDER BY nombre ";
     //echo $query;
+    $arreglo = array();
+    $arreglonombre = array();
+    $result_tasks = mysqli_query($conn, $query);
+    while($row = mysqli_fetch_array($result_tasks)) {    
+        array_push($arreglo, $row['imagen']);
+        array_push($arreglonombre, $row['nombre']);
+    };
+
+
+$i=0;
+$cada = 0;
+$fin = 5;
+$filingas = 6;
+$maximo = count($arreglo);
+$filas = $maximo / $filingas;
+
+
 
 }
 ?>
@@ -75,42 +92,25 @@ include("connection.php");
             <div class="texto-tabla">
                 <div class="divdetabla">
 
-                    <!-- CONNTENIDO -->
-                    <table class="cr_table table table-bordered, tablamatch">
-                        <thead>
-                            <tr>
-                                <th colspan="6">JUEGOS instalados</th>
-                            </tr>
-                            <tr>
-                                <th>NOMBRE</th>
-                                <th>GENERO</th>
-                                <th>jugadores</th>
-                                <th>ESPACIO MINIMO</th>
-                                <th>PLATAFORMA</th>
-                                <th>IMAGEN</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                <?php
-                                    //$query = "SELECT * FROM juegos WHERE instalado = 'SI' ORDER BY nombre ASC";
-                                    $result_tasks = mysqli_query($conn, $query);    
-                                    while($row = mysqli_fetch_assoc($result_tasks)) { ?>
-                                        <?php $id= $row['id'];
-                                        $link = "details.php?id=$id";?>
-                                       <tr onclick="window.location.href='<?php echo $link?>'">
-                                            <td class="mayusculones"><a href="details.php?id=<?php echo $id ?>"><?php echo $row['nombre']; ?></td>
-                                            <td><span class="<?php echo arrejuntar($row['genero']); ?>"><?php echo $row['genero']; ?></span></td>
-                                            <td><?php echo convertirjugadores($row['jugadores']); ?></td>
-                                            <td><?php echo $row['espacio']; ?></td>
-                                            <td><?php echo $row['plataforma']; ?></td>
-                                            <td><img class="mini-img" src="images/<?php echo $row['imagen']?>.jpg"></td>
-
-                                        </tr>
-                                    <?php }
-                                ?>
-                            </form>               
-                        </tbody>    
-                    </table>
+    <table class="cr_table2 table table-bordered, tablamatch">
+        <thead>
+          <tr>
+            <th colspan ="6">JUEGOS INSTALADOS PS4</th>
+          </tr>
+        </thead>
+        <tbody>
+            <?php while ($i < $filas) { ?>
+                <tr>
+                    <?php while(($cada <= $fin )&&($cada < $maximo)){ ?>
+                        <td><a href="details.php?img=<?php echo $arreglo[$cada]?>"><img class="persona" src="images/<?php echo $arreglo[$cada]; ?>.jpg" title="<?php echo $arreglonombre[$cada]; ?>" ></a></td>
+                        <?php $cada++;
+                    
+                    } $fin = $fin+6?>
+                </tr>
+            <?php $i++; } ?>
+        </tbody>
+      </table>
+                    
                 </div> 
             </div>
         </div> 

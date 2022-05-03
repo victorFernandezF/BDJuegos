@@ -1057,6 +1057,11 @@ ul, ol {
     
 }
 
+.persona
+      {
+        width:166px;
+        height:166px;
+      }
 
 .mini-img{
     width:100px;
@@ -1101,3 +1106,18 @@ table.cr_table2 tbody {
     color: black;
     font-size: 16px;
 }
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 13%;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .containercio {
+    padding: 2px 16px;
+  }

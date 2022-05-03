@@ -41,6 +41,25 @@ function convertirjugadores($jugadores){
     };
     return $alcachofa;
 }
+//$array = array("1", "2", "3", "4", "5","6","7","8","9","10","11","12","13","14","15","16","17","18");
+include("connection.php");
+$arreglo = array();
+$query = "SELECT imagen FROM juegos where instalado = 'SI' and plataforma='PS4' ORDER BY nombre ASC
+";
+$result_tasks = mysqli_query($conn, $query);
+while($row = mysqli_fetch_array($result_tasks)) {    
+    array_push($arreglo, $row['imagen']);
+};
+
+
+$i=0;
+$cada = 0;
+$fin = 5;
+$filingas = 6;
+$maximo = count($arreglo);
+$filas = $maximo / $filingas;
+
+
 
 
 
@@ -59,7 +78,7 @@ function convertirjugadores($jugadores){
 </head>
 <body>
 <?php
-include("connection.php");
+
 //include("funciones.php");
 ?>
 <!DOCTYPE html>
@@ -88,42 +107,25 @@ include("connection.php");
                         <label for="NOMBRE">JUEGOS INSTALADOS: <?php echo contarjuegosinstalados() ?> </label><br>
                     </fieldset>   
                     <!-- CONNTENIDO -->
-                    <table class="cr_table table table-bordered, tablamatch">
-                        <thead>
-                            <tr>
-                                <th colspan="6">JUEGOS instalados</th>
-                            </tr>
-                            <tr>
-                                <th>NOMBRE</th>
-                                <th>GENERO</th>
-                                <th>jugadores</th>
-                                <th>ESPACIO MINIMO</th>
-                                <th>PLATAFORMA</th>
-                                <th>imágen</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                <?php
-                                    $query = "SELECT * FROM juegos WHERE instalado = 'SI' ORDER BY nombre ASC";
-                                    $result_tasks = mysqli_query($conn, $query);    
-                                    while($row = mysqli_fetch_assoc($result_tasks)) { ?>
-                                    <?php
-                                       $id= $row['id'];
-                                       $link = "details.php?id=$id";?>
-                                       <tr onclick="window.location.href='<?php echo $link?>'">
-                                            <td class="mayusculones"><?php echo $row['nombre']; ?></td>
-                                            <td><span class="<?php echo arrejuntar($row['genero']); ?>"><?php echo $row['genero']; ?></span></td>
-                                            <td><?php echo convertirjugadores($row['jugadores']); ?></td>
-                                            <td><?php echo $row['espacio']; ?></td>
-                                            <td><?php echo $row['plataforma']; ?></td>
-                                            <td><img class="mini-img" src="images/<?php echo $row['imagen']?>.jpg"></td>
-                                        </tr>
-                                    
-                                    <?php }
-                                ?>
-                            </form>               
-                        </tbody>    
-                    </table>
+    <table class="cr_table2 table table-bordered, tablamatch">
+        <thead>
+          <tr>
+            <th colspan ="6">JUEGOS INSTALADOS PS4</th>
+          </tr>
+        </thead>
+        <tbody>
+            <?php while ($i < $filas) { ?>
+                <tr>
+                    <?php while(($cada <= $fin )&&($cada < $maximo)){ ?>
+                        <td>
+                        
+                        <a href="details.php?img=<?php echo $arreglo[$cada]?>"><img class="persona" src="images/<?php echo $arreglo[$cada]; ?>.jpg" title="<?php echo $arreglo[$cada]; ?>" ></a></td>                        <?php $cada++;
+                    
+                    } $fin = $fin+6?>
+                </tr>
+            <?php $i++; } ?>
+        </tbody>
+      </table>
                 </div> 
             </div>
         </div> 

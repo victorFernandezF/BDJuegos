@@ -2,7 +2,13 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
+  .persona
+      {
+        width:166px;
+        height:166px;
+      }
 .container {
   position: relative;
   width: 50%;
@@ -46,24 +52,34 @@
 </head>
 <body>
 
-<h2>Fade in Overlay</h2>
-<p>Hover over the image to see the effect.</p>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 14%;
+}
 
-<div class="container">
-  <img src="images/fallout_4.jpg" alt="Avatar" class="image">
-  <div class="overlay">
-    <div class="text">
-      <table>
-        <tr>
-          <th>CONCHA</th>
-        </tr>
-        <tr>
-          <td>Pepino</td>
-        </tr>
-      </table>
-    </div>
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.containercio {
+  padding: 2px 16px;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <img class ="persona" src="images/fallout_4.jpg" alt="Avatar">
+  <div class="container">
+    <h4><b>John Doe</b></h4> 
+    <p>Architect & Engineer</p> 
   </div>
 </div>
+
+</body>
+</html>
 
 </body>
 </html>
