@@ -90,6 +90,7 @@ include("connection.php");
                                 <th>INSTALADO</th>
                                 <th>ESPACIO MINIMO</th>
                                 <th>PLATAFORMA</th>
+                                <th>IMAGEN</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -97,7 +98,9 @@ include("connection.php");
                                     //$query = "SELECT * FROM juegos WHERE instalado = 'SI' ORDER BY nombre ASC";
                                     $result_tasks = mysqli_query($conn, $query);    
                                     while($row = mysqli_fetch_assoc($result_tasks)) { ?>
-                                        <?php $id= $row['id'];?>
+                                        <?php $id= $row['id'];
+                                        $link = "edit.php?id=$id";?>
+                                       <tr onclick="window.location.href='<?php echo $link?>'">
                                             <td class="mayusculones"><a href="edit.php?id=<?php echo $id ?>"><?php echo $row['nombre']; ?></a></td>
                                             <td><span class="<?php echo arrejuntar($row['genero']); ?>"><?php echo $row['genero']; ?></span></td>
                                             <td><?php echo convertirjugadores($row['jugadores']); ?></td>

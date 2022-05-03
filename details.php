@@ -2,17 +2,21 @@
 include("connection.php");
 include("funciones.php");
 
-if (!isset($_GET['id'])) {
+if (!isset($_GET['id']) AND !isset($_GET['img'])) {
     header("Location: index.php");
     exit();
 }
-
-  // DRY - Don't Repeat Yourself
+if (isset($_GET['id'])){
   $id = $_GET['id'];
   $query = "SELECT * FROM juegos WHERE id = $id LIMIT 1";
   $result = mysqli_query($conn, $query);
-
-
+}
+if (isset($_GET['img'])){
+    $img = $_GET['img'];
+    $query = "SELECT * FROM juegos WHERE imagen = '$img' LIMIT 1";
+    $result = mysqli_query($conn, $query);
+  }
+  //echo $query;
 ?>
 <!DOCTYPE html>
 <html lang="en">

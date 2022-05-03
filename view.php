@@ -95,7 +95,9 @@ include("connection.php");
                                     //$query = "SELECT * FROM juegos WHERE instalado = 'SI' ORDER BY nombre ASC";
                                     $result_tasks = mysqli_query($conn, $query);    
                                     while($row = mysqli_fetch_assoc($result_tasks)) { ?>
-                                        <?php $id= $row['id'];?>
+                                        <?php $id= $row['id'];
+                                        $link = "details.php?id=$id";?>
+                                       <tr onclick="window.location.href='<?php echo $link?>'">
                                             <td class="mayusculones"><a href="details.php?id=<?php echo $id ?>"><?php echo $row['nombre']; ?></td>
                                             <td><span class="<?php echo arrejuntar($row['genero']); ?>"><?php echo $row['genero']; ?></span></td>
                                             <td><?php echo convertirjugadores($row['jugadores']); ?></td>
