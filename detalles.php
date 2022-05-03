@@ -86,12 +86,14 @@ if (isset($_GET['img'])){
 
         .details-descripcion{
             border-top: 2px solid black;
-            width: 615px;
+            width: 607px;
             margin-right: 17px;
             background: rgb(181,181,181);
             background: linear-gradient(180deg, rgba(181,181,181,1) 0%, rgba(250,250,250,1) 61%, rgba(255,255,255,1) 100%);
             font-size:18px;
             padding-bottom:11px;
+            padding-right:4px;
+            padding-left:4px;
             text-align:center;
 
         }

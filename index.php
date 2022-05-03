@@ -119,7 +119,7 @@ $filas = $maximo / $filingas;
                     <?php while(($cada <= $fin )&&($cada < $maximo)){ ?>
                         <td>
                         
-                        <a href="details.php?img=<?php echo $arreglo[$cada]?>"><img class="persona" src="images/<?php echo $arreglo[$cada]; ?>.jpg" title="<?php echo $arreglo[$cada]; ?>" ></a></td>                        <?php $cada++;
+                        <a href="detalles.php?img=<?php echo $arreglo[$cada]?>"><img class="persona" src="images/<?php echo $arreglo[$cada]; ?>.jpg" title="<?php echo $arreglo[$cada]; ?>" ></a></td>                        <?php $cada++;
                     
                     } $fin = $fin+6?>
                 </tr>

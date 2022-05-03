@@ -2,16 +2,23 @@
 include("connection.php");
 include("funciones.php");
 
-if (!isset($_GET['id'])) {
-    header("Location: index.php");
-    exit();
+if (!isset($_GET['id']) AND !isset($_GET['img'])) {
+  header("Location: index.php");
+  exit();
+} 
+if (isset($_GET['id'])){
+$id = $_GET['id'];
+
 }
-
-  // DRY - Don't Repeat Yourself
-  $id = $_GET['id'];
-  $query = "SELECT * FROM juegos WHERE id = $id LIMIT 1";
+if (isset($_GET['img'])){
+  $img = $_GET['img'];
+  $query = "SELECT id FROM juegos WHERE imagen = '$img' LIMIT 1";
   $result = mysqli_query($conn, $query);
-
+  $row = mysqli_fetch_array($result);
+  $id= $row['id'];
+} 
+$query = "SELECT * FROM juegos WHERE id = $id LIMIT 1";
+$result = mysqli_query($conn, $query);
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
     $nombre = $row['nombre'];
@@ -39,70 +46,79 @@ if(isset($_POST["edit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
     $uppernombre = strtoupper($nombre);  
     $plataforma = strtoupper($plataforma1);  
-    
 
-    $target_dir = "images/";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    
-    // Check if image file is a actual image or fake image
-    
-      $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-      if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
+    $cambiaimagen = isset($_POST['contender']) ? "on" : "off";    
+   
+   
+    if($cambiaimagen == "off"){
+      $query = "UPDATE juegos SET nombre = '$nombre', genero = '$genero', instalado = '$instalado', espacio = '$espacio', jugadores = '$jugadores', formato = '$formato', descripcion = '$descripcion', plataforma = '$plataforma' WHERE id = $id";
+      mysqli_query($conn, $query);
+      header('Location: editselect.php?todos=si');
+    }
+    if($cambiaimagen == "on"){
+      $target_dir = "images/";
+      $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+      $uploadOk = 1;
+      $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+      
+      // Check if image file is a actual image or fake image
+      
+        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+        if($check !== false) {
+          echo "File is an image - " . $check["mime"] . ".";
+          $uploadOk = 1;
+        } else {
+          echo "File is not an image.";
+          $uploadOk = 0;
+        }
+      
+      
+      // Check if file already exists
+      if (file_exists($target_file)) {
+        unlink($target_file);
+        //echo "Sorry, file already exists.";
         $uploadOk = 1;
-      } else {
-        echo "File is not an image.";
+      }
+      
+      // Check file size
+      if ($_FILES["fileToUpload"]["size"] > 500000) {
+        echo "Sorry, your file is too large.";
         $uploadOk = 0;
       }
-    
-    
-    // Check if file already exists
-    if (file_exists($target_file)) {
-      unlink($target_file);
-      //echo "Sorry, file already exists.";
-      $uploadOk = 1;
-    }
-    
-    // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
-      echo "Sorry, your file is too large.";
-      $uploadOk = 0;
-    }
-    
-    // Allow certain file formats
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-    && $imageFileType != "gif" ) {
-      echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-      $uploadOk = 0;
-    }
-    
-    
-    
-    
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-      echo "Sorry, your file was not uploaded.";
-    // if everything is ok, try to upload file
-    } else {
-      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-      } else {
-        echo "Sorry, there was an error uploading your file.";
+      
+      // Allow certain file formats
+      if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+      && $imageFileType != "gif" ) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
       }
-    }
-    rename($target_file, "images/$imagen.jpg");
-     
-    //exit();
-    
-    
-    
-    $query = "UPDATE juegos SET nombre = '$nombre', genero = '$genero', instalado = '$instalado', espacio = '$espacio', jugadores = '$jugadores', formato = '$formato', descripcion = '$descripcion', plataforma = '$plataforma', imagen ='$imagen' WHERE id = $id";
-    mysqli_query($conn, $query);
+      
+      
+      
+      
+      // Check if $uploadOk is set to 0 by an error
+      if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+      // if everything is ok, try to upload file
+      } else {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+          echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+        } else {
+          echo "Sorry, there was an error uploading your file.";
+        }
+      }
+      rename($target_file, "images/$imagen.jpg");
+      
+      //exit();
+      
+      
+      
+      $query = "UPDATE juegos SET nombre = '$nombre', genero = '$genero', instalado = '$instalado', espacio = '$espacio', jugadores = '$jugadores', formato = '$formato', descripcion = '$descripcion', plataforma = '$plataforma', imagen ='$imagen' WHERE id = $id";
+      mysqli_query($conn, $query);
+  }
     //echo "<script>window.history.back()</script>";
     //echo "<script>window.history.back()<script>";
-    header('Location: editselect.php?toti=si');
+    header('Location: editselect.php?todos=si');
 
     //echo $query;
 
@@ -175,6 +191,13 @@ if(isset($_POST["edit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
                     <fieldset class="noborde">
                         <label for="plataforma">PLATAFORMA</label><br>
                         <input class="input" type="text" id="plataforma" name="plataforma" value="PS4" value="<?php echo $plataforma ?>">
+                    </fieldset>
+                    <fieldset class="noborde">
+                                    <label for="switch">MODIFICAR IMAGEN</label><br>
+                                    <label class="switch">
+                                        <input type="checkbox" name="contender" id="contender">
+                                        <div class="slider"></div>
+                                    </label>
                     </fieldset>
                     <fieldset class="noborde">
                         <label for="plataforma">Select image to upload:</label><br>
