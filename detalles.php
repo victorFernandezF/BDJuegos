@@ -29,7 +29,7 @@ if (isset($_GET['img'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Detalles de <?php echo ucwords(strtolower($row['nombre']))?></title>
 </head>
 <body>
 
@@ -80,6 +80,12 @@ if (isset($_GET['img'])){
             display: flex;
             justify-content: center;
             align-items: center;
+
+        }
+        .data-titulo{
+
+        }
+        .datos{
 
         }
         
@@ -134,11 +140,15 @@ if (isset($_GET['img'])){
                             <div class="details-datas">
                                 <table>
                                     <tr class="name">
-                                        <td colspan=2><strong class="nombre"><?php echo $row['nombre']; ?></strong></td>
+                                        <td colspan=2>
+                                            <span class="gamename">
+                                                <strong class="nombre"><?php echo $row['nombre']; ?></strong>
+                                            </span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><strong>genero:</strong></td>
-                                        <td><span class="<?php echo arrejuntar($row['genero']); ?>"><?php echo $row['genero']; ?></span></td>
+                                        <td><?php echo $row['genero']; ?></td>
                                     </tr>
                                     <tr>
                                         <td><strong>jugadores:</strong></td>
@@ -161,6 +171,7 @@ if (isset($_GET['img'])){
                                         <td><?php echo $row['formato']; ?></td>
                                     </tr>
                                 </table>
+                                
                             </div>
 
                         </div>

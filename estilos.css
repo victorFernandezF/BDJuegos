@@ -172,6 +172,11 @@ span{
     display: inline-block;
     width: 134px;
     height:20px;
+    padding-top: 4px;
+    padding-bottom: 1px;
+    padding-right: 8px;
+    padding-left: 8px;
+
 
 }
 .Deporte{
@@ -244,7 +249,17 @@ span{
     border: 1px solid rgb(14, 30, 177);
     border-radius: 10px;
 }
-
+.gamename{
+    width: 402px;
+    background-color: #0079a95c;
+    height: 27px;
+    border: 1px solid black;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+.tabletin{
+    padding-top: 1px;
+}
 
 
 

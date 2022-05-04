@@ -83,3 +83,4 @@
 
 </body>
 </html>
+<span class="<?php echo arrejuntar($row['genero']); ?>"><?php echo $row['genero']; ?></span>

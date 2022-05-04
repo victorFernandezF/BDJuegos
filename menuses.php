@@ -27,7 +27,7 @@
 				</li>
 				<li><a href="<?= $base; ?>descripcion.php?estado=Delete" onclick="mobileDisallowParentLinks(event)">Eliminar</a>
 					<ul>
-						<li><a href="<?= $base; ?>delete/deletegame.php">eliminar Juego</a></li>
+						<li><!-- <a href="<?= $base; ?>delete/deletegame.php"> -->eliminar Juego<!-- </a> --></li>
 <!-- 						<li><a href="<?= $base; ?>edit/ask_match.php">modificar combate</a></li>
  -->						
 					</ul>

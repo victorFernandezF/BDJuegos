@@ -134,7 +134,7 @@ if(isset($_POST["edit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos.css">
 <!--     <script src="../assets/js/general.functions.js" defer></script> -->
-    <title>Editar</title>
+    <title>Editando <?php echo ucfirst(strtolower($row['nombre']))?></title>
 </head>
 <body>
     <div class="container">
