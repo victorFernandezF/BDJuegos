@@ -1136,3 +1136,26 @@ table.cr_table2 tbody {
   .containercio {
     padding: 2px 16px;
   }
+
+  .borrar{
+    width:126px;
+    height: 44px;
+    background-color: #964d57;
+    color: white;
+    font-weight: bold;
+  }
+  .borrar:hover{
+    background-color: #b5636e;
+
+  }
+  .volver{
+    width:126px;
+    height: 44px;
+    background-color: #1b8905;
+    color: white;
+    font-weight: bold;
+  }
+  .volver:hover{
+    background-color: #32b218;
+
+  }
