@@ -1,7 +1,9 @@
 <?php
 include("../connection.php");
 include("../funciones.php");
-
+if(!isset($_SESSION['usuario'])){
+  header("location:../index.php");
+}
 if (!isset($_GET['id'])) {
   header("Location: ../index.php");
   exit();

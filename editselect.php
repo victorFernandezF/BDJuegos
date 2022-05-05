@@ -1,6 +1,11 @@
 <?php
 include("connection.php");
 include("funciones.php");
+
+if(!isset($_SESSION['usuario'])){
+    header("location:/index.php");
+  }
+
 if(isset($_GET['todos'])){
     $where="Where 1";
     $query = "SELECT * FROM juegos $where ORDER BY nombre ";

@@ -1,11 +1,9 @@
 <?php
 include("../connection.php");
 include("../funciones.php");
-
-/* $query = "SELECT MAX(orden) as 'orden' FROM eventos";
-$orden = mysqli_query($conn, $query);
-$ordenultimo = mysqli_fetch_array($orden);
-//echo $ordenultimo['orden']; */
+if(!isset($_SESSION['usuario'])){
+  header("location:../index.php");
+}
 
 if(isset($_POST["add"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 

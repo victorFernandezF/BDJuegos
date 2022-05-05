@@ -1,7 +1,9 @@
 <?php
 include("../connection.php");
 include("../funciones.php");
-
+if(!isset($_SESSION['usuario'])){
+    header("location:../index.php");
+}
     $query = "SELECT * FROM juegos ORDER BY nombre";
     //echo $query;
     $arreglo = array();
