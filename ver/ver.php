@@ -1,17 +1,13 @@
-<?php
-if(!isset($_SESSION['usuario'])){
-    header("location:/index.php");
-  }
-?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="../general/estilos.css">
 <!--     <script src="../assets/js/general.functions.js" defer></script> -->
-    <title>Modificar Juego</title>
+    <title>Ver</title>
 </head>
 <body>
     <div class="container">
@@ -20,12 +16,12 @@ if(!isset($_SESSION['usuario'])){
                  <h1>BD - JUEGOS</h1>
             </div>
             <div class="menu">
-                <?php include("menuses.php") ?>
+                <?php include("../general/menuses.php") ?>
             </div>
             <div class="texto">
                 <div class="subtitulover"> 
-                    <form class="formulariover" action="editselect.php" method="POST" enctype="multipart/form-data">
-                        <fieldset class="nobordever">
+                    <form class="formulariover" action="view.php" method="POST" enctype="multipart/form-data">
+                    <fieldset class="nobordever">
                             <input type="checkbox" class="inputado" id="todos" name="todos" value="todos" onclick="tod()">
                             <label for="todos"> TODOS</label><br>
                         </fieldset>

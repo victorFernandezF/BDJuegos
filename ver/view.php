@@ -1,33 +1,12 @@
 <?php
-include("connection.php");
-include("funciones.php");
+include("../general/connection.php");
+include("../general/funciones.php");
 
-if(!isset($_SESSION['usuario'])){
-    header("location:/index.php");
+  if(isset($_GET['todos'])){
+    $where = "WHERE 1";
   }
 
-if(isset($_GET['todos'])){
-    $where="Where 1";
-    $query = "SELECT * FROM juegos $where ORDER BY nombre ";
-    //echo $query;
-    $arreglo = array();
-    $arreglonombre = array();
-    $result_tasks = mysqli_query($conn, $query);
-    while($row = mysqli_fetch_array($result_tasks)) {    
-        array_push($arreglo, $row['imagen']);
-        array_push($arreglonombre, $row['nombre']);
-    };
-
-
-    $i=0;
-    $cada = 0;
-    $fin = 5;
-    $filingas = 6;
-    $maximo = count($arreglo);
-    $filas = $maximo / $filingas;
-}
  if(isset($_POST["ver"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
-    
     $todos = $todos = isset($_POST['todos']) ? "si" : "no";
     $where = "WHERE 1";
     $plataforma = $plat = isset($_POST['plataforma']) ? "si" : "no";
@@ -58,7 +37,7 @@ if(isset($_GET['todos'])){
         $instalados2 = $_POST['instalados2'];
         $where = "$where AND instalado = '$instalados2'";  
       };
-    
+}
 
     $query = "SELECT * FROM juegos $where ORDER BY nombre ";
     //echo $query;
@@ -68,19 +47,19 @@ if(isset($_GET['todos'])){
     while($row = mysqli_fetch_array($result_tasks)) {    
         array_push($arreglo, $row['imagen']);
         array_push($arreglonombre, $row['nombre']);
-    };
+  };
 
 
-    $i=0;
-    $cada = 0;
-    $fin = 5;
-    $filingas = 6;
-    $maximo = count($arreglo);
-    $filas = $maximo / $filingas;
+$i=0;
+$cada = 0;
+$fin = 5;
+$filingas = 6;
+$maximo = count($arreglo);
+$filas = $maximo / $filingas;
 
 
 
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,11 +67,11 @@ if(isset($_GET['todos'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar Juegos</title>
+    <title>Ver juegos</title>
 </head>
 <body>
 <?php
-include("connection.php");
+include("../general/connection.php");
 //include("funciones.php");
 ?>
 <!DOCTYPE html>
@@ -101,8 +80,8 @@ include("connection.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos.css">
-    <title>Predicciones</title>
+    <link rel="stylesheet" href="../general/estilos.css">
+    <title>Ver Juegos</title>
 </head>
 <body>
     <div class="container">
@@ -112,7 +91,7 @@ include("connection.php");
             </div>    
 
             <div class="menu">
-                <?php include("menuses.php") ?>
+                <?php include("../general/menuses.php") ?>
             </div>
             <div class="texto-tabla">
                 <div class="divdetabla">
@@ -127,7 +106,7 @@ include("connection.php");
             <?php while ($i < $filas) { ?>
                 <tr>
                     <?php while(($cada <= $fin )&&($cada < $maximo)){ ?>
-                        <td><a href="edit.php?img=<?php echo $arreglo[$cada]?>"><img class="persona" src="images/<?php echo $arreglo[$cada]; ?>.jpg" title="<?php echo $arreglonombre[$cada]; ?>" ></a></td>
+                        <td><a href="detalles.php?img=<?php echo $arreglo[$cada]?>"><img class="persona" src="../images/<?php echo $arreglo[$cada]; ?>.jpg" title="<?php echo $arreglonombre[$cada]; ?>" ></a></td>
                         <?php $cada++;
                     
                     } $fin = $fin+6?>

@@ -1,6 +1,6 @@
 <?php
 function contarjuegosinstalados(){
-    include("connection.php");
+    include("general/connection.php");
     $chorizo = "SELECT count(*) as juegos FROM juegos WHERE instalado = 'SI'";
     $resultado = mysqli_query($conn, $chorizo);
     $row = mysqli_fetch_array($resultado);
@@ -9,7 +9,7 @@ function contarjuegosinstalados(){
 };
 
 function contarjuegos(){
-    include("connection.php");
+    include("general/connection.php");
     $chimichanga = "SELECT count(*) as juegos FROM juegos";
     $resultado = mysqli_query($conn, $chimichanga);
     $row = mysqli_fetch_array($resultado);
@@ -42,7 +42,7 @@ function convertirjugadores($jugadores){
     return $alcachofa;
 }
 //$array = array("1", "2", "3", "4", "5","6","7","8","9","10","11","12","13","14","15","16","17","18");
-include("connection.php");
+include("general/connection.php");
 $arreglo = array();
 $query = "SELECT imagen FROM juegos where instalado = 'SI' and plataforma='PS4' ORDER BY nombre ASC
 ";
@@ -87,7 +87,7 @@ $filas = $maximo / $filingas;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="general/estilos.css">
     <title>Predicciones</title>
 </head>
 <body>
@@ -98,7 +98,7 @@ $filas = $maximo / $filingas;
             </div>    
 
             <div class="menu">
-                <?php include("menuses.php") ?>
+                <?php include("general/menuses.php") ?>
             </div>
             <div class="texto-tabla">
                 <div class="divdetabla">

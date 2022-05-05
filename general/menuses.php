@@ -1,5 +1,7 @@
                   <?php include_once("Config.php");
-				  session_start(); ?>
+				 if(!isset($_SESSION)){session_start();} 
+			 ?>		 
+
                   <script>
 				function mobileDisallowParentLinks(event) {
 					const link = event.target;
@@ -25,7 +27,7 @@
 				</li>
 				<li><a href="<?= $base; ?>descripcion.php?estado=Edit" onclick="mobileDisallowParentLinks(event)">Modificar</a>
 					<ul>
-						<li><a href="<?= $base; ?>editfilter.php">modificar Juego</a></li>
+						<li><a href="<?= $base; ?>edit/editfilter.php">modificar Juego</a></li>
 					</ul>
 				</li>
 				<li><a href="<?= $base; ?>descripcion.php?estado=Delete" onclick="mobileDisallowParentLinks(event)">Eliminar</a>
@@ -38,7 +40,8 @@
 				<?php } ?>
 				<li><a href="<?= $base; ?>descripcion.php?estado=View" onclick="mobileDisallowParentLinks(event)">ver</a>
 					<ul>
-						<li><a href="<?= $base; ?>ver.php">ver Juegos</a></li>
+						<li><a href="<?= $base; ?>ver/ver.php">Filtros</a></li>
+						<li><a href="<?= $base; ?>ver/view.php?todos=si">Ver Juegos</a></li>
 					</ul>
 				</li>
 				<li><a href="<?= $base; ?>descripcion.php?estado=View" onclick="mobileDisallowParentLinks(event)">USUARIOS</a>

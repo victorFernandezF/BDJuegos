@@ -1,6 +1,6 @@
 <?php
-include("../connection.php");
-include("../funciones.php");
+include("../general/connection.php");
+include("../general/funciones.php");
 if(!isset($_SESSION['usuario'])){
   header("location:../index.php");
 }

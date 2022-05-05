@@ -1,7 +1,7 @@
 <?php
-include("../connection.php");
-include("../funciones.php");
-
+include("../general/connection.php");
+include("../general/funciones.php");
+if(!isset($_SESSION)){session_start();} 
 if(!isset($_SESSION['usuario'])){
     header("location:../index.php");
 }
@@ -43,7 +43,7 @@ if (isset($_GET['img'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilos.css">
+    <link rel="stylesheet" href="../general/estilos.css">
     
     <style>
         .persona
@@ -124,7 +124,7 @@ if (isset($_GET['img'])){
             </div>    
 
             <div class="menu">
-                <?php include("../menuses.php") ?>
+                <?php include("../general/menuses.php") ?>
             </div>
             <div class="texto-tabla">
                 <div class="divdetabla">

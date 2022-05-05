@@ -1,6 +1,6 @@
 <?php
-include("../connection.php");
-include("../funciones.php");
+include("../general/connection.php");
+include("../general/funciones.php");
 
 if(isset($_POST["add"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
     session_start();
@@ -18,17 +18,10 @@ if(isset($_POST["add"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
         $_SESSION['usuario'] = $nombre;
         header("location: ../index.php");
     }else{
-        header("location: ../index.php");
+        header("location: ../login_form.php");
     }
  exit();
-
-
-  
-
-
-
-    header('Location: newuser.php');
-    
+   
 }
 
 ?>
@@ -39,7 +32,7 @@ if(isset($_POST["add"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilos.css">
+    <link rel="stylesheet" href="../general/estilos.css">
 <!--     <script src="../assets/js/general.functions.js" defer></script> -->
     <title>LET ME IN</title>
 </head>
@@ -51,7 +44,7 @@ if(isset($_POST["add"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
                 <h1>BD - JUEGOS</h1>
             </div>
             <div class="menu">
-                <?php include("../menuses.php") ?>
+                <?php include("../general/menuses.php") ?>
             </div>
             <div class="texto">
               <div class="subtitulo">

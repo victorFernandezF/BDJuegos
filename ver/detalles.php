@@ -1,9 +1,9 @@
 <?php
-include("connection.php");
-include("funciones.php");
+include("../general/connection.php");
+include("../general/funciones.php");
 
  if (!isset($_GET['id']) AND !isset($_GET['img'])) {
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 } 
  if (isset($_GET['id'])){
@@ -39,7 +39,7 @@ if (isset($_GET['img'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="../general/estilos.css">
     <title>Cojones</title>
     <style>
         .persona
@@ -128,14 +128,14 @@ if (isset($_GET['img'])){
             </div>    
 
             <div class="menu">
-                <?php include("menuses.php") ?>
+                <?php include("../general/menuses.php") ?>
             </div>
             <div class="texto-tabla">
                 <div class="divdetabla">
                     <div class="details-cont">
                         <div class="details-todo">
                             <div class="details-image-total">
-                                <img class="persona" src="images/<?php echo $row['imagen'];?>.jpg">
+                                <img class="persona" src="../images/<?php echo $row['imagen'];?>.jpg">
                             </div>
                             <div class="details-datas">
                                 <table>
